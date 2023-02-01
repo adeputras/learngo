@@ -2,7 +2,8 @@ package main
 
 import (
 	"github.com/adeputras/learngo/config"
-	"github.com/adeputras/learngo/controller"
+	"github.com/adeputras/learngo/modules/albums"
+	"github.com/adeputras/learngo/modules/songs"
 	"github.com/gin-gonic/gin"
 )
 
@@ -13,18 +14,18 @@ func main() {
 	api := router.Group("/v1")
 
 	album := api.Group("/albums")
-	album.GET("/", controller.GetAlbums)
-	album.GET("/:id", controller.GetDetailAlbum)
-	album.POST("/", controller.CreateAlbum)
-	album.PUT("/:id", controller.UpdateAlbum)
-	album.DELETE("/:id", controller.DeleteAlbum)
+	album.GET("/", albums.GetAlbums)
+	album.GET("/:id", albums.GetDetailAlbum)
+	album.POST("/", albums.CreateAlbum)
+	album.PUT("/:id", albums.UpdateAlbum)
+	album.DELETE("/:id", albums.DeleteAlbum)
 
 	song := api.Group("/songs")
-	song.GET("/", controller.GetSongs)
-	song.GET("/:id", controller.GetDetailSongs)
-	song.POST("/", controller.CreateSong)
-	song.PUT("/:id", controller.UpdateSong)
-	song.DELETE("/:id", controller.DeleteSong)
+	song.GET("/", songs.GetSongs)
+	song.GET("/:id", songs.GetDetailSongs)
+	song.POST("/", songs.CreateSong)
+	song.PUT("/:id", songs.UpdateSong)
+	song.DELETE("/:id", songs.DeleteSong)
 
 	router.Run() // listen an
 }

@@ -1,7 +1,7 @@
 package config
 
 import (
-	"github.com/adeputras/learngo/models"
+	"github.com/adeputras/learngo/entity"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 )
@@ -17,5 +17,5 @@ func InitDb() {
 		panic("koneksi gagal")
 	}
 
-	DB.AutoMigrate(&models.Album{}, &models.Song{})
+	DB.AutoMigrate(&entity.Album{}, &entity.Song{})
 }
